@@ -1,7 +1,7 @@
 import StatusBadge from './StatusBadge';
 import '../styles/ShipmentDetail.css';
 
-export default function ShipmentDetail({ shipment, onClose }) {
+export default function ShipmentDetail({ shipment, onClose, onDelete }) {
   if (!shipment) return null;
 
   return (
@@ -65,6 +65,13 @@ export default function ShipmentDetail({ shipment, onClose }) {
               ))}
             </div>
           </div>
+
+          <button
+            className="detail-delete-btn"
+            onClick={() => onDelete(shipment.id)}
+          >
+            Delete Shipment
+          </button>
         </div>
       </div>
     </div>
