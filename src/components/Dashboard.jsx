@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { shipments as initialShipments } from '../data/shipments';
 import StatusBadge from './StatusBadge';
 import ShipmentDetail from './ShipmentDetail';
@@ -8,7 +8,14 @@ import '../styles/Dashboard.css';
 const ACTIVE_FILTERS = ['All', 'In Transit', 'Delayed', 'Pending'];
 
 export default function Dashboard() {
-  const [shipments, setShipments] = useState(initialShipments);
+  const [shipments, setShipments] = useState(() => {
+    const stored = localStorage.getItem('shipments');
+    return stored ? JSON.parse(stored) : initialShipments;
+  });
+
+  useEffect(() => {
+    localStorage.setItem('shipments', JSON.stringify(shipments));
+  }, [shipments]);
   const [activeFilter, setActiveFilter] = useState('All');
   const [selectedShipment, setSelectedShipment] = useState(null);
   const [showAddModal, setShowAddModal] = useState(false);
