@@ -4,8 +4,6 @@ A React dashboard for tracking shipments — filter by status, view route detail
 
 **Live Site:** https://arsidee.github.io/Logistics-Shipment-Tracker/
 
-**Repo:** https://github.com/Arsidee/Logistics-Shipment-Tracker
-
 ## Features
 
 - Dashboard with summary cards showing shipment counts by status
